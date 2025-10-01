@@ -7,7 +7,7 @@ public:
         }
 
         vector<vector<int>> freq(nums.size()+1);
-        for(auto entry: count){
+        for(auto &entry: count){
             freq[entry.second].push_back(entry.first);
         }
 
