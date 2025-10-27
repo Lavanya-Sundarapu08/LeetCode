@@ -29,9 +29,9 @@ public:
             if(ele1 == nums[i]) cnt1++;
             if(ele2 == nums[i]) cnt2++;
         }
-        int res = int(n/3);
-        if(cnt1>res) ls.push_back(ele1);
-        if(cnt2>res) ls.push_back(ele2);
+        int res = int(n/3)+1;
+        if(cnt1>=res) ls.push_back(ele1);
+        if(cnt2>=res) ls.push_back(ele2);
         return ls;
     }
 };
