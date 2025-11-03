@@ -19,7 +19,7 @@ public:
                 j++;
                 k--;
 
-                // there should be while loop inside 
+                // there should be while loop inside (this makes error)
                 while(j<k && nums[j] == nums[j-1]) j++;
                 while(j<k && nums[k] == nums[k+1]) k--;
               }
