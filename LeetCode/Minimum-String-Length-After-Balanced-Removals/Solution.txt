@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int minLengthAfterRemovals(string s) {
+        string result = "";
+        for (char c : s) {
+            if (!result.empty() &&
+                ((result.back() == 'a' && c == 'b') ||
+                 (result.back() == 'b' && c == 'a'))) 
+            {
+                // Found "ab" or "ba", remove the last char
+                result.pop_back();
+            } else {
+                result.push_back(c);
+            }
+        }
+
+        return result.length();
+    }
+};
