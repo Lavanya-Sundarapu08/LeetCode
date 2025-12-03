@@ -3,7 +3,7 @@
 3    int singleNonDuplicate(vector<int>& nums) {
 4        int n = nums.size();
 5        if( n== 1) return nums[0];
-6        if (nums[0] != nums[1]) return nums[0];
+6        if (nums[0] != nums[1]) return nums[0];//forgotten this check once
 7        if(nums[n - 1] != nums[n-2]) return nums[n-1];
 8        int low = 1,high = n-2;
 9        while(low<= high){
