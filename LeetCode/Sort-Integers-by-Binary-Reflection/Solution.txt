@@ -1,0 +1,22 @@
+1class Solution {
+2public:
+3    int reverseBits(int x) {
+4        
+5        int rev = 0;
+6        while (x > 0) {
+7            rev = (rev << 1) | (x & 1);
+8            x >>= 1;
+9        }
+10    return rev;
+11    }
+12    
+13    vector<int> sortByReflection(vector<int>& nums) {
+14         sort(nums.begin(), nums.end(), [&](int a, int b) {
+15        int reflecta = reverseBits(a);
+16        int reflectb = reverseBits(b);
+17        if (reflecta == reflectb) return a < b;
+18        return reflecta < reflectb;
+19    });
+20    return nums;
+21    }
+22};
