@@ -1,10 +1,10 @@
 1class Solution {
 2public:
-3    // Function to calculate total hours at given speed
+3
 4    long long calculateTotalHours(vector<int>& piles, int speed) {
 5        long long totalH = 0;
 6        for (int bananas : piles) {
-7            totalH += (bananas+speed -1)/speed;
+7            totalH += (bananas +speed - 1) / speed;
 8        }
 9        return totalH;
 10    }
@@ -12,15 +12,15 @@
 12    // Function to find minimum eating speed
 13    int minEatingSpeed(vector<int>& piles, int h) {
 14        // Find maximum element
-15        // int maxPile = *max_element(piles.begin(), piles.end());
+15        int maxPile = *max_element(piles.begin(), piles.end());
 16
 17        // Initialize low and high pointers
-18        int low = 1, high = *max_element(piles.begin(), piles.end());
-19        int ans = high;
+18        int low = 1, high = maxPile;
+19        int ans = maxPile;
 20
 21        // Binary search on answer space
 22        while (low <= high) {
-23            int mid = low + (high - low) / 2;
+23            int mid = (high+low)/ 2;
 24            long long totalH = calculateTotalHours(piles, mid);
 25
 26            // If possible, try smaller speed
