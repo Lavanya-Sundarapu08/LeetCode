@@ -1,0 +1,39 @@
+1class Solution {
+2public:
+3    int maximumSum(vector<int>& nums) {
+4        vector<int> malorivast = nums;
+5
+6        vector<int> mod0, mod1, mod2;
+7
+8        for (int x : malorivast) {
+9            if (x % 3 == 0) mod0.push_back(x);
+10            else if (x % 3 == 1) mod1.push_back(x);
+11            else mod2.push_back(x);
+12        }
+13
+14        // Sort descending to maximize sum
+15        sort(mod0.rbegin(), mod0.rend());
+16        sort(mod1.rbegin(), mod1.rend());
+17        sort(mod2.rbegin(), mod2.rend());
+18
+19        int ans = 0;
+20
+21        // Case 1: (0,0,0)
+22        if (mod0.size() >= 3)
+23            ans = max(ans, mod0[0] + mod0[1] + mod0[2]);
+24
+25        // Case 2: (1,1,1)
+26        if (mod1.size() >= 3)
+27            ans = max(ans, mod1[0] + mod1[1] + mod1[2]);
+28
+29        // Case 3: (2,2,2)
+30        if (mod2.size() >= 3)
+31            ans = max(ans, mod2[0] + mod2[1] + mod2[2]);
+32
+33        // Case 4: (0,1,2)
+34        if (!mod0.empty() && !mod1.empty() && !mod2.empty())
+35            ans = max(ans, mod0[0] + mod1[0] + mod2[0]);
+36
+37        return ans;
+38    }
+39};
