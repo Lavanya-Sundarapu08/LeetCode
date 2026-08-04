@@ -1,18 +1,22 @@
 1class Solution {
-2public:
-3    vector<vector<string>> groupAnagrams(vector<string>& strs) {
-4        unordered_map<string, vector<string>> mp;
+2    public List<List<String>> groupAnagrams(String[] strs) {
+3
+4        HashMap<String, List<String>> map = new HashMap<>();
 5
-6        for(auto s: strs){
-7            string key = s;
-8            sort(key.begin(),key.end());
-9            mp[key].push_back(s);
-10        }
-11
-12        vector<vector<string>> res;
-13        for(auto s: mp){
-14            res.push_back(s.second);
-15        }
-16        return res;
-17    }
-18};
+6        for (String s : strs) {
+7
+8            char[] arr = s.toCharArray();
+9            Arrays.sort(arr);
+10
+11            String key = new String(arr);
+12
+13            if (!map.containsKey(key)) {
+14                map.put(key, new ArrayList<>());
+15            }
+16
+17            map.get(key).add(s);
+18        }
+19
+20        return new ArrayList<>(map.values());
+21    }
+22};
