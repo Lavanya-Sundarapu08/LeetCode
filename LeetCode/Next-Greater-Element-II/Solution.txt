@@ -1,0 +1,21 @@
+1class Solution {
+2public:
+3    vector<int> nextGreaterElements(vector<int>& nums) {
+4        int n = nums.size();
+5
+6        vector<int> nge(n,-1);
+7
+8        for(int i = 0;i<n;i++){
+9
+10            for(int j=1;j<n;j++){
+11                int idx = (i +j) % n;
+12
+13                if(nums[idx] > nums[i]){
+14                    nge[i] = nums[idx];
+15                    break;
+16                }
+17            }
+18        }
+19        return nge;
+20    }
+21};
