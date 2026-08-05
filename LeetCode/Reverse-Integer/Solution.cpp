@@ -1,13 +1,13 @@
-1class Solution:
-2    def reverse(self, x: int) -> int:
-3        sign = -1 if x < 0 else 1
-4        x *= sign
-5        rev = 0
-6
-7        while x:
-8            rev = rev * 10 + x % 10
-9            x //= 10
-10
-11        rev *= sign
-12
-13        return rev if -2**31 <= rev <= 2**31 - 1 else 0
+1class Solution {
+2public:
+3    int reverse(int x) {
+4        long long  fd = 0;
+5        while(x != 0){
+6            int  ld = x % 10;
+7            fd = (fd * 10 ) + ld;
+8            x = x / 10;
+9        }
+10        if( fd  < INT_MIN || fd > INT_MAX) return 0;
+11        return (int)fd ;
+12    }
+13};
