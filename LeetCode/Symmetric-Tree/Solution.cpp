@@ -25,7 +25,7 @@
 25        }
 26
 27        return (root1->val == root2->val)
-28                &&isSymmetricCheck(root1->left, root2->right)
+28                && isSymmetricCheck(root1->left, root2->right)
 29                && isSymmetricCheck(root1->right, root2->left);
 30    }
 31};
