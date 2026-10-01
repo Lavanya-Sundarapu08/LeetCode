@@ -2,24 +2,27 @@
 2public:
 3    bool isValid(string s) {
 4        stack<char> st;
-5    unordered_map<char, char> match = {
-6        {')', '('},
-7        {']', '['},
-8        {'}', '{'}
-9    };
-10    
-11    for (char c : s) {
-12        // If it's an opening bracket, push to stack
-13        if (c == '(' || c == '[' || c == '{') {
-14            st.push(c);
-15        } else {
-16            // If it's a closing bracket
-17            if (st.empty() || st.top() != match[c])
-18                return false;
-19            st.pop();
-20        }
-21    }
-22    
-23    return st.empty();
-24    }
-25};
+5
+6        for(char c : s){
+7            if (c == '(' || c == '{' || c == '[') {
+8                st.push(c);
+9            }
+10            else{
+11                 if (st.empty()) {
+12                    return false;
+13                }
+14
+15                char top = st.top();
+16                st.pop();
+17
+18                if ((c == ')' && top != '(') ||
+19                    (c == '}' && top != '{') ||
+20                    (c == ']' && top != '[')) {
+21                    return false;
+22                }
+23            }
+24
+25        }
+26        return st.empty();
+27    }
+28};
