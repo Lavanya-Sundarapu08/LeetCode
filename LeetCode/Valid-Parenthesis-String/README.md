@@ -13,11 +13,13 @@ The following rules define a valid string:
 
 Example 1:
 
+
 Input: s = "()"
 Output: true
 
 
 Example 2:
+
 
 Input: s = "(*)"
 Output: true
@@ -25,5 +27,13 @@ Output: true
 
 Example 3:
 
+
 Input: s = "(*))"
 Output: true
+
+
+Example 4:
+
+
+Input: s = "("
+Output: false
